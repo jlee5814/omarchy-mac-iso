@@ -1,0 +1,22 @@
+#!/bin/sh
+# PID 1 of the M0 live environment. Runs from the initramfs root under
+# busybox ash (Alpine's /bin/sh). Mounts the baseline pseudo-filesystems,
+# announces the deterministic ready marker on the console, then hands off
+# to an interactive shell so a human attached to the serial console has
+# something to look at. test/smoke does not wait for anything past the
+# marker line.
+set -e
+
+mount -t proc none /proc
+mount -t sysfs none /sys
+mount -t devtmpfs none /dev
+
+echo "==> OMARCHY_MAC_ISO_READY" > /dev/console
+
+# Best-effort interactive shell for a human attached to a real console. Not
+# exec'd: if the console has no readable input (e.g. test/smoke's file-backed
+# serial log), the shell exits immediately on EOF, and PID 1 must survive
+# that or the kernel panics with "Attempted to kill init!".
+setsid sh -c 'exec sh </dev/console >/dev/console 2>&1' || true
+
+while true; do sleep 3600; done
