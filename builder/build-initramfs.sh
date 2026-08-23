@@ -37,7 +37,7 @@ install -m 755 "${script_dir}/../configs/initramfs/init" "${stage_dir}/init"
 
 log "packing initramfs"
 mkdir -p "${out_dir}"
-( cd "${stage_dir}" && find . -print0 | cpio --null -o -H newc 2>/dev/null ) \
+( cd "${stage_dir}" && find . -print0 | cpio --null -o -H newc ) \
     | gzip -9 > "${out_dir}/initramfs.img"
 
 cp "${kernel_stage}/boot/vmlinuz-virt" "${out_dir}/vmlinuz"
