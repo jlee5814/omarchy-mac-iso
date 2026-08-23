@@ -1,10 +1,4 @@
 #!/bin/bash
-# Builds the M0 ARM64 boot artifact: a kernel + initramfs bundle that boots
-# under AArch64 UEFI (see README.md for why this isn't an .iso yet).
-#
-# Usage: omarchy-mac-iso-make
-#
-# Output: release/omarchy-mac-iso-arm64/{vmlinuz,initramfs.img,BUILD_INFO}
 set -euo pipefail
 
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"

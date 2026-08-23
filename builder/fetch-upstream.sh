@@ -1,9 +1,5 @@
 #!/bin/bash
-# Downloads the pinned Alpine minirootfs and kernel package into a local
-# cache, verifying sha256 on every use (cache hit or miss). Prints the two
-# cached file paths on stdout, one per line, for the caller to consume:
-#   <minirootfs tar.gz path>
-#   <kernel apk path>
+# Prints minirootfs and kernel cache paths, one per line.
 set -euo pipefail
 
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"

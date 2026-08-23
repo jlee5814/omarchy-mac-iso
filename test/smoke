@@ -1,7 +1,4 @@
 #!/bin/bash
-# Full pipeline smoke test: build, boot under QEMU AArch64 UEFI, wait for
-# the deterministic ready marker on the serial console, tear down.
-#
 # Usage: test/smoke [timeout-seconds]   (default 60)
 set -euo pipefail
 

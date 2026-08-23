@@ -1,10 +1,4 @@
 #!/bin/sh
-# PID 1 of the M0 live environment. Runs from the initramfs root under
-# busybox ash (Alpine's /bin/sh). Mounts the baseline pseudo-filesystems,
-# announces the deterministic ready marker on the console, then hands off
-# to an interactive shell so a human attached to the serial console has
-# something to look at. test/smoke does not wait for anything past the
-# marker line.
 set -e
 
 mount -t proc none /proc

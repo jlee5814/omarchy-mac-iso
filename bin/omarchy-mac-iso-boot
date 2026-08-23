@@ -1,16 +1,4 @@
 #!/bin/bash
-# Boots an omarchy-mac-iso M0 boot artifact under QEMU AArch64 UEFI.
-#
-# Usage:
-#   omarchy-mac-iso-boot [artifact-dir]              interactive (default)
-#   omarchy-mac-iso-boot [artifact-dir] --headless   for scripted use (test/smoke)
-#
-# Interactive mode attaches your terminal to the guest console and blocks
-# until you quit QEMU (Ctrl-A X, or a guest poweroff). Headless mode
-# daemonizes QEMU, prints one line on stdout — a temp directory containing
-# serial.log and qemu.pid — and returns immediately; the caller is
-# responsible for tearing the VM down (kill "$(cat <dir>/qemu.pid)") and
-# removing the directory when done.
 set -euo pipefail
 
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"

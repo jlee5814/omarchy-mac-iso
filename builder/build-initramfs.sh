@@ -1,10 +1,4 @@
 #!/bin/bash
-# Assembles the M0 boot artifact from the cached, checksummed Alpine
-# minirootfs + kernel package: extracts a userspace, installs our own
-# /init as PID 1, packs it as a gzip'd newc cpio initramfs, and stages the
-# kernel alongside it. Takes the two paths printed by fetch-upstream.sh and
-# an output directory.
-#
 # Usage: build-initramfs.sh <minirootfs.tar.gz> <linux-virt.apk> <out-dir>
 set -euo pipefail
 
